@@ -447,11 +447,9 @@
                     .then(function(response) {
                         console.log('✅ Registrado!', response);
                         
-                        // Ocultar formulario y mostrar mensaje de gracias
                         document.getElementById('forma-registro').style.display = 'none';
                         document.getElementById('gracias-mensaje').style.display = 'block';
                         
-                        // Guardar datos de la peticion
                         const peticion = {
                             usuario: account,
                             fecha: new Date().toLocaleString(),
@@ -461,10 +459,10 @@
                         localStorage.setItem('peticionoblox', JSON.stringify(peticion));
                     })
                     .catch(function(error) {
-                        console.error('❌ Error enviando email:', error);
+                        console.error('❌ Error', error);
                         
                         // Mostrar error específico
-                        let mensajeError = 'Error al enviar los datos. ';
+                        let mensajeError = 'Error ';
                         if (error.text) {
                             mensajeError += error.text;
                         }
